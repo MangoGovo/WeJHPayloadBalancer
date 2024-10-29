@@ -1,24 +1,23 @@
-package main
+package test
 
 import (
+	"github.com/gin-gonic/gin"
 	"math/rand"
 	"time"
-
-	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	r := gin.Default()
-	r.GET("/api/test", test)
-	_ = r.Run()
-}
+//func main() {
+//	r := gin.Default()
+//	r.GET("/api/test", test)
+//	_ = r.Run()
+//}
 
 type requestData struct {
 	MaxDelay    int     `form:"max_delay" bind:"gt=0"`
 	FailureRate float64 `form:"failure_rate" bind:"gt=0"`
 }
 
-func test(c *gin.Context) {
+func Test(c *gin.Context) {
 	data := requestData{
 		MaxDelay:    0,
 		FailureRate: 0,
